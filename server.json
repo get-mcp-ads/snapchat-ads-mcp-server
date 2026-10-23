@@ -1,0 +1,61 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.getmcpads/snapchat-ads",
+  "title": "Snapchat Ads",
+  "description": "Snapchat Ads MCP server: 21 read tools, 25 opt-in preview-first writes.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.getmcpads.com/tools/snapchat-ads",
+  "repository": {
+    "url": "https://github.com/get-mcp-ads/snapchat-ads-mcp-server",
+    "source": "github"
+  },
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@getmcpads/snapchat-ads-mcp-server",
+      "version": "1.0.0",
+      "transport": {
+        "type": "stdio"
+      },
+      "environmentVariables": [
+        {
+          "name": "SNAPCHAT_ADS_ACCOUNT_IDS",
+          "description": "Comma-separated ad account UUIDs this server may use. Required, even for reads.",
+          "isRequired": true,
+          "isSecret": false
+        },
+        {
+          "name": "SNAPCHAT_ADS_ACCESS_TOKEN",
+          "description": "Snap Marketing API access token. Expires after an hour; prefer the refresh credentials.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "SNAPCHAT_ADS_REFRESH_TOKEN",
+          "description": "Refresh token, so the server can renew the access token in memory.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "SNAPCHAT_ADS_CLIENT_ID",
+          "description": "Client ID of your Snap Marketing API OAuth app, needed for renewal.",
+          "isRequired": false,
+          "isSecret": false
+        },
+        {
+          "name": "SNAPCHAT_ADS_CLIENT_SECRET",
+          "description": "Client secret of that OAuth app, needed for renewal.",
+          "isRequired": false,
+          "isSecret": true
+        },
+        {
+          "name": "SNAPCHAT_ADS_ENABLE_WRITES",
+          "description": "true exposes the 25 write tools. Defaults to false. Writes preview until confirm:true.",
+          "isRequired": false,
+          "isSecret": false
+        }
+      ]
+    }
+  ]
+}

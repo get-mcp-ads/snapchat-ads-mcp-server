@@ -1,0 +1,3860 @@
+{
+  "serverInfo": {
+    "name": "@getmcpads/snapchat-ads-mcp-server",
+    "title": "Snapchat Ads MCP server: 21 read tools, 25 opt-in preview-first writes.",
+    "version": "1.0.0",
+    "websiteUrl": "https://www.getmcpads.com/tools/snapchat-ads",
+    "icons": [
+      {
+        "src": "https://mcp.getmcpads.com/icon.svg",
+        "mimeType": "image/svg+xml"
+      }
+    ]
+  },
+  "tools": [
+    {
+      "name": "snapchat_health_check",
+      "title": "snapchat health check",
+      "description": "Read the selected Snapchat ad account, permissions-visible metadata, timezone, currency and test flag. Test accounts cannot serve ads.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_campaigns",
+      "title": "snapchat get campaigns",
+      "description": "List Snapchat campaigns in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_adsquads",
+      "title": "snapchat get adsquads",
+      "description": "List Snapchat adsquads in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_ads",
+      "title": "snapchat get ads",
+      "description": "List Snapchat ads in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_creatives",
+      "title": "snapchat get creatives",
+      "description": "List Snapchat creatives in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_media",
+      "title": "snapchat get media",
+      "description": "List Snapchat media in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_segments",
+      "title": "snapchat get segments",
+      "description": "List Snapchat segments in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_creative_elements",
+      "title": "snapchat get creative elements",
+      "description": "List Snapchat creative elements in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_interaction_zones",
+      "title": "snapchat get interaction zones",
+      "description": "List Snapchat interaction zones in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_lead_generation_forms",
+      "title": "snapchat get lead generation forms",
+      "description": "List Snapchat lead generation forms in the selected account, retaining full native configuration and pagination (next_cursor). An ad squad is an ad group/ad set.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_media_status",
+      "title": "snapchat get media status",
+      "description": "Read this account-owned media and its native processing state. Only ready:true permits creative creation; an accepted upload alone is insufficient.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "mediaId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Media UUID created with snapchat_create_media."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "mediaId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_list_ad_creatives",
+      "title": "snapchat list ad creatives",
+      "description": "Resolve ad-linked Snapchat images/videos, Story children and Collection tiles with business names, native IDs and fresh media URLs. Incomplete formats/media are reported. No performance is inferred. Media URLs are short-lived links from Snap; this server does not download them.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "adIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid",
+              "description": "Native Snapchat entity UUID."
+            },
+            "minItems": 1,
+            "maxItems": 60,
+            "description": "Specific ad UUIDs to resolve. Omit to resolve the first ads of the account."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 60,
+            "default": 24,
+            "description": "Ads to read when adIds is omitted, 1 to 60."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_targeting",
+      "title": "snapchat get targeting",
+      "description": "Read configured ad squad targeting, audiences, exclusions, demographics, geo and placements. Missing fields are unknown, not proof of broad targeting. Performance breakdowns describe delivery, not configured targeting.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "adsquadId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Ad squad UUID in the selected account."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "adsquadId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_entity",
+      "title": "snapchat get entity",
+      "description": "Read a campaign, ad squad, ad, creative, media, segment, creative element, interaction zone or lead form with verified account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "campaign",
+              "adsquad",
+              "ad",
+              "creative",
+              "media",
+              "segment",
+              "creative_element",
+              "interaction_zone",
+              "lead_generation_form"
+            ],
+            "description": "Entity type to read."
+          },
+          "entityId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid",
+                "description": "Native Snapchat entity UUID."
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,30}$"
+              }
+            ],
+            "description": "Entity UUID, or the numeric ID of an audience segment."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "kind",
+          "entityId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_write_schema",
+      "title": "snapchat get write schema",
+      "description": "Discover implemented Snapchat creation/edit fields, required fields and preview rules. These are the fields this server accepts, not an exhaustive Snap API schema.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "campaign",
+              "adsquad",
+              "ad",
+              "creative",
+              "media",
+              "segment",
+              "creative_element",
+              "interaction_zone",
+              "lead_generation_form"
+            ],
+            "description": "Entity type whose writable fields to describe."
+          }
+        },
+        "required": [
+          "kind"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_insights",
+      "title": "snapchat get insights",
+      "description": "Read native Snapchat stats with explicit time interval (end exclusive), granularity and optional entity breakdown. Spend and monetary conversion values are micro currency. Empty test-account results are not live performance evidence. partial:true means Snap returned another page of rows.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "level": {
+            "type": "string",
+            "enum": [
+              "adaccounts",
+              "campaigns",
+              "adsquads",
+              "ads"
+            ],
+            "default": "adaccounts",
+            "description": "Reporting level. Any level other than adaccounts needs entityId."
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Campaign, ad squad or ad UUID for that reporting level."
+          },
+          "startTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Interval start, ISO timestamp with offset. Align DAY intervals to midnight in the account timezone."
+          },
+          "endTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Interval end, exclusive, ISO timestamp with offset."
+          },
+          "granularity": {
+            "type": "string",
+            "enum": [
+              "TOTAL",
+              "DAY",
+              "HOUR"
+            ],
+            "default": "TOTAL",
+            "description": "Time bucketing of the returned stats."
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_]*$"
+            },
+            "minItems": 1,
+            "maxItems": 100,
+            "default": [
+              "spend"
+            ],
+            "description": "Native stats fields, such as spend, impressions or swipes. See snapchat://reporting-fields."
+          },
+          "breakdown": {
+            "type": "string",
+            "enum": [
+              "campaign",
+              "adsquad",
+              "ad"
+            ],
+            "description": "Optional entity breakdown below the reporting level."
+          },
+          "reportDimension": {
+            "type": "string",
+            "enum": [
+              "age",
+              "gender",
+              "country",
+              "region",
+              "dma",
+              "device_os",
+              "interest"
+            ],
+            "description": "Optional delivery audience pivot. Describes delivery, not configured targeting."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "startTime",
+          "endTime"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_mobile_apps",
+      "title": "snapchat get mobile apps",
+      "description": "Read Snap App IDs associated with the selected ad account before creating app promotion campaigns or mobile retargeting audiences.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_pixels",
+      "title": "snapchat get pixels",
+      "description": "Read the pixels associated with the selected account before configuring conversion optimization or website audiences.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          }
+        },
+        "required": [
+          "adAccountId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_targeting_specs",
+      "title": "snapchat get targeting specs",
+      "description": "Read separately stored targeting specs, including configurations exceeding 500 criteria. These can be omitted from the ordinary ad squad response.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "adsquadId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Ad squad UUID in the selected account."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "adsquadId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_targeting_options",
+      "title": "snapchat get targeting options",
+      "description": "Discover native targeting values before editing: countries, regions, languages, genders, interests and devices. Retains pagination; do not invent category IDs.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "countries",
+              "regions",
+              "metros",
+              "postal_codes",
+              "languages",
+              "genders",
+              "age_groups",
+              "interests",
+              "devices"
+            ],
+            "description": "Targeting catalog to read."
+          },
+          "countryCode": {
+            "type": "string",
+            "pattern": "^[a-zA-Z]{2}$",
+            "description": "Two-letter country code, required for regions, metros and postal codes."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000,
+            "default": 100,
+            "description": "Maximum entities per page, 1 to 1000."
+          },
+          "cursor": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "category"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_get_setup_guide",
+      "title": "snapchat get setup guide",
+      "description": "Read Snapchat campaign objectives, audience workflows, creative format prerequisites and explicit limitations. Implementation is not proof of account eligibility or live delivery. Use before claiming all features are available.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_campaign",
+      "title": "snapchat create campaign",
+      "description": "Create a Snapchat campaign. Always PAUSED. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_campaign",
+      "title": "snapchat update campaign",
+      "description": "Update Snapchat campaign configuration, including name. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the campaign to update."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "entityId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_adsquad",
+      "title": "snapchat create adsquad",
+      "description": "Create a Snapchat adsquad. Always PAUSED. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Campaign UUID that will own the ad squad."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "parentId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_adsquad",
+      "title": "snapchat update adsquad",
+      "description": "Update Snapchat adsquad configuration, including name, targeting, schedule and budget. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the adsquad to update."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "entityId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_ad",
+      "title": "snapchat create ad",
+      "description": "Create a Snapchat ad. Always PAUSED. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Ad squad UUID that will own the ad."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "parentId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_ad",
+      "title": "snapchat update ad",
+      "description": "Update Snapchat ad configuration, including name. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the ad to update."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "entityId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_creative",
+      "title": "snapchat create creative",
+      "description": "Create a Snapchat creative. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_creative",
+      "title": "snapchat update creative",
+      "description": "Update Snapchat creative configuration, including name. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the creative to update."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "entityId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_media",
+      "title": "snapchat create media",
+      "description": "Create a Snapchat media. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_segment",
+      "title": "snapchat create segment",
+      "description": "Create a Snapchat segment. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_creative_element",
+      "title": "snapchat create creative element",
+      "description": "Create a Snapchat creative element. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_interaction_zone",
+      "title": "snapchat create interaction zone",
+      "description": "Create a Snapchat interaction zone. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_lead_generation_form",
+      "title": "snapchat create lead generation form",
+      "description": "Create a Snapchat lead generation form. Local preview by default; confirm true writes after verifying parent/account ownership.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "spec": {
+            "type": "object",
+            "additionalProperties": {},
+            "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "spec"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_rename_campaign",
+      "title": "snapchat rename campaign",
+      "description": "Rename one Snapchat campaign. The name is the only thing that changes. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "campaignId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the campaign to rename."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 375,
+            "description": "New name, up to 375 characters. This is the only thing the call changes."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "campaignId",
+          "name"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_rename_adsquad",
+      "title": "snapchat rename adsquad",
+      "description": "Rename one Snapchat ad squad. The name is the only thing that changes. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "adSquadId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the ad squad to rename."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 375,
+            "description": "New name, up to 375 characters. This is the only thing the call changes."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "adSquadId",
+          "name"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_rename_ad",
+      "title": "snapchat rename ad",
+      "description": "Rename one Snapchat ad. The name is the only thing that changes. Preview by default; ownership checked before applying.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "adId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the ad to rename."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 375,
+            "description": "New name, up to 375 characters. This is the only thing the call changes."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "adId",
+          "name"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_rename_ad_account",
+      "title": "snapchat rename ad account",
+      "description": "Rename the selected Snapchat ad account. Snap only accepts a full account update, so the account is read and written back unchanged except for its name. Preview by default.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 375,
+            "description": "New name, up to 375 characters. This is the only thing the call changes."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "name"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_status",
+      "title": "snapchat update status",
+      "description": "Pause or activate a campaign, ad squad or ad. Preview by default; activating production entities can spend budget.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "campaign",
+              "adsquad",
+              "ad"
+            ],
+            "description": "Entity type to update."
+          },
+          "entityId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID of the campaign, ad squad or ad."
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "PAUSED",
+              "ACTIVE"
+            ],
+            "description": "Explicit requested delivery status. ACTIVE can spend budget."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "kind",
+          "entityId",
+          "status"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_upload_media",
+      "title": "snapchat upload media",
+      "description": "Upload base64 image/video bytes to a previously created media object. Maximum 5 MB per image or 10 MiB per direct video, decoded. Use the multipart upload tools for larger videos. No external URL fetching. Preview does not send bytes; confirm true uploads after ownership verification.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "mediaId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Media UUID created with snapchat_create_media and awaiting upload."
+          },
+          "fileName": {
+            "type": "string",
+            "maxLength": 200,
+            "pattern": "^[a-zA-Z0-9_.-]+$",
+            "description": "Filename including extension."
+          },
+          "mimeType": {
+            "type": "string",
+            "enum": [
+              "image/png",
+              "image/jpeg",
+              "video/mp4",
+              "video/quicktime"
+            ],
+            "description": "MIME type of the uploaded bytes."
+          },
+          "base64": {
+            "type": "string",
+            "maxLength": 14000000,
+            "description": "Base64 file content, without a data URL prefix."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "mediaId",
+          "fileName",
+          "mimeType",
+          "base64"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_segment",
+      "title": "snapchat update segment",
+      "description": "Rename or edit retention/description of an audience segment. Unchanged fields are preserved. Local preview unless confirm true.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "segmentId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid",
+                "description": "Native Snapchat entity UUID."
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,30}$"
+              }
+            ],
+            "description": "Native audience segment ID (UUID or numeric string)."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 375,
+            "description": "Audience display name."
+          },
+          "description": {
+            "type": "string",
+            "maxLength": 2000,
+            "description": "Audience description; empty string clears it."
+          },
+          "retentionInDays": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9999,
+            "description": "Retention days, subject to audience-type limits."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "segmentId"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_update_audience_users",
+      "title": "snapchat update audience users",
+      "description": "Add or remove customer-list members. Accepts only normalized SHA-256 hashes: EMAIL_SHA256, PHONE_SHA256, MOBILE_AD_ID_SHA256. Normalize emails by trimming/lowercasing; phones to country-code digits; mobile IDs lowercase retaining hyphens. Never invent customer data. Preview returns counts, not hashes. Caller batches up to 10,000 per request; confirm true applies.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "segmentId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid",
+                "description": "Native Snapchat entity UUID."
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,30}$"
+              }
+            ],
+            "description": "Native audience segment ID (UUID or numeric string)."
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "add",
+              "remove"
+            ],
+            "description": "Add or remove these hashed members."
+          },
+          "schema": {
+            "type": "string",
+            "enum": [
+              "EMAIL_SHA256",
+              "PHONE_SHA256",
+              "MOBILE_AD_ID_SHA256"
+            ],
+            "description": "Identifier type hashed in every row."
+          },
+          "hashes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "minItems": 1,
+            "maxItems": 10000,
+            "description": "Normalized identifiers hashed with SHA-256, lowercase hexadecimal. Never raw personal data."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "segmentId",
+          "action",
+          "schema",
+          "hashes"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_create_lookalike",
+      "title": "snapchat create lookalike",
+      "description": "Create a lookalike audience from an owned customer-list seed. Provider eligibility and sufficient seed size still apply; creation does not guarantee targetable_status READY. Preview unless confirm true.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 375,
+            "description": "Audience display name."
+          },
+          "seedSegmentId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "format": "uuid",
+                "description": "Native Snapchat entity UUID."
+              },
+              {
+                "type": "string",
+                "pattern": "^\\d{1,30}$"
+              }
+            ],
+            "description": "Native audience segment ID (UUID or numeric string)."
+          },
+          "countries": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[A-Z]{2}$"
+            },
+            "minItems": 1,
+            "maxItems": 20,
+            "description": "Uppercase ISO 3166-1 country codes for the lookalike."
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "BALANCE",
+              "SIMILARITY",
+              "REACH"
+            ],
+            "default": "BALANCE",
+            "description": "Lookalike similarity versus reach preference."
+          },
+          "retentionInDays": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 180,
+            "default": 180,
+            "description": "Lookalike retention, at most 180 days."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "name",
+          "seedSegmentId",
+          "countries"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_init_media_upload",
+      "title": "snapchat init media upload",
+      "description": "Initialize a chunked video upload, up to 256 MiB across at most 32 parts of 8 MiB. Returns upload_id, add_path and finalize_path to use for subsequent calls. Preview unless confirm true.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "mediaId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "VIDEO media UUID created with snapchat_create_media."
+          },
+          "fileName": {
+            "type": "string",
+            "maxLength": 200,
+            "pattern": "^[a-zA-Z0-9_.-]+$",
+            "description": "Video filename including extension, without directories."
+          },
+          "fileSize": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 268435456,
+            "description": "Total decoded video size in bytes, at most 256 MiB."
+          },
+          "numberOfParts": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32,
+            "description": "Number of nonempty parts, each at most 8 MiB."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "mediaId",
+          "fileName",
+          "fileSize",
+          "numberOfParts"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_upload_media_part",
+      "title": "snapchat upload media part",
+      "description": "Upload one video part, at most 8 MiB decoded. Use the exact add_path and upload_id returned by snapchat_init_media_upload. Preview never sends bytes.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "mediaId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "VIDEO media UUID being uploaded."
+          },
+          "uploadId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "upload_id returned by snapchat_init_media_upload."
+          },
+          "addPath": {
+            "type": "string",
+            "maxLength": 300,
+            "description": "Exact add_path returned by upload initialization."
+          },
+          "partNumber": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32,
+            "description": "One-based part number from 1 through numberOfParts."
+          },
+          "base64": {
+            "type": "string",
+            "maxLength": 11200000,
+            "description": "Base64-encoded bytes of this part, without a data URL prefix."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "mediaId",
+          "uploadId",
+          "addPath",
+          "partNumber",
+          "base64"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    },
+    {
+      "name": "snapchat_finalize_media_upload",
+      "title": "snapchat finalize media upload",
+      "description": "Finalize a video upload after all parts succeeded. Use the exact finalize_path and upload_id returned by snapchat_init_media_upload. Preview unless confirm true.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "adAccountId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
+          },
+          "mediaId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "VIDEO media UUID being uploaded."
+          },
+          "uploadId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "upload_id returned by snapchat_init_media_upload."
+          },
+          "finalizePath": {
+            "type": "string",
+            "maxLength": 300,
+            "description": "Exact finalize_path returned by upload initialization."
+          },
+          "confirm": {
+            "type": "boolean",
+            "default": false,
+            "description": "False previews only. True applies the previewed change, after the user approved it."
+          }
+        },
+        "required": [
+          "adAccountId",
+          "mediaId",
+          "uploadId",
+          "finalizePath"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "outputSchema": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {},
+                "additionalProperties": true
+              },
+              {
+                "type": "array",
+                "items": {}
+              },
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              },
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "description": "Original tool result: parsed JSON when the text is JSON, otherwise the text or multiple MCP content blocks. Provider fields depend on the selected query."
+          }
+        },
+        "required": [
+          "result"
+        ],
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
+      },
+      "annotations": {
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      },
+      "execution": {
+        "taskSupport": "forbidden"
+      }
+    }
+  ],
+  "resources": [
+    {
+      "name": "snapchat-guide",
+      "title": "Snapchat Ads guide",
+      "uri": "snapchat://guide",
+      "description": "Units, pagination, write safety, upload limits and rate limits for this server.",
+      "mimeType": "text/plain"
+    },
+    {
+      "name": "snapchat-reporting-fields",
+      "title": "Snapchat reporting fields",
+      "uri": "snapchat://reporting-fields",
+      "description": "Curated stats fields and breakdowns for snapchat_get_insights. Not an exhaustive list of the Snap API.",
+      "mimeType": "application/json"
+    }
+  ],
+  "prompts": []
+}
