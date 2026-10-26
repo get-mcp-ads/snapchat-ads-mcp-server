@@ -14,7 +14,7 @@ const schema = z.object({
   clientId: z.string().min(1).max(512).optional(),
   clientSecret: secret,
   allowedAccountIds: z.array(z.string()),
-  enableWrites: z.boolean().default(false),
+  enableWrites: z.boolean().prefault(false),
 });
 
 export type SnapConfig = {

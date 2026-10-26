@@ -2,7 +2,7 @@
   "serverInfo": {
     "name": "@getmcpads/snapchat-ads-mcp-server",
     "title": "Snapchat Ads MCP server: 21 read tools, 25 opt-in preview-first writes.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "websiteUrl": "https://www.getmcpads.com/tools/snapchat-ads",
     "icons": [
       {
@@ -22,14 +22,15 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -39,7 +40,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -64,8 +65,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -87,26 +88,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -116,7 +118,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -141,8 +143,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -164,26 +166,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -193,7 +196,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -218,8 +221,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -241,26 +244,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -270,7 +274,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -295,8 +299,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -318,26 +322,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -347,7 +352,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -372,8 +377,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -395,26 +400,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -424,7 +430,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -449,8 +455,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -472,26 +478,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -501,7 +508,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -526,8 +533,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -549,26 +556,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -578,7 +586,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -603,8 +611,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -626,26 +634,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -655,7 +664,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -680,8 +689,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -703,26 +712,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -732,7 +742,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -757,8 +767,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -780,11 +790,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "mediaId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Media UUID created with snapchat_create_media."
           }
         },
@@ -792,8 +804,8 @@
           "adAccountId",
           "mediaId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -803,7 +815,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -828,8 +840,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -851,32 +863,34 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "adIds": {
+            "description": "Specific ad UUIDs to resolve. Omit to resolve the first ads of the account.",
+            "minItems": 1,
+            "maxItems": 60,
             "type": "array",
             "items": {
               "type": "string",
               "format": "uuid",
+              "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
               "description": "Native Snapchat entity UUID."
-            },
-            "minItems": 1,
-            "maxItems": 60,
-            "description": "Specific ad UUIDs to resolve. Omit to resolve the first ads of the account."
+            }
           },
           "limit": {
+            "description": "Ads to read when adIds is omitted, 1 to 60.",
+            "default": 24,
             "type": "integer",
             "minimum": 1,
-            "maximum": 60,
-            "default": 24,
-            "description": "Ads to read when adIds is omitted, 1 to 60."
+            "maximum": 60
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -886,7 +900,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -911,8 +925,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -934,11 +948,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "adsquadId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Ad squad UUID in the selected account."
           }
         },
@@ -946,8 +962,8 @@
           "adAccountId",
           "adsquadId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -957,7 +973,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -982,8 +998,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1005,6 +1021,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "kind": {
@@ -1027,6 +1044,7 @@
               {
                 "type": "string",
                 "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
                 "description": "Native Snapchat entity UUID."
               },
               {
@@ -1042,8 +1060,8 @@
           "kind",
           "entityId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1053,7 +1071,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1078,8 +1096,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1117,8 +1135,8 @@
         "required": [
           "kind"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1128,7 +1146,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1153,8 +1171,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1176,67 +1194,72 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "level": {
+            "description": "Reporting level. Any level other than adaccounts needs entityId.",
+            "default": "adaccounts",
             "type": "string",
             "enum": [
               "adaccounts",
               "campaigns",
               "adsquads",
               "ads"
-            ],
-            "default": "adaccounts",
-            "description": "Reporting level. Any level other than adaccounts needs entityId."
+            ]
           },
           "entityId": {
+            "description": "Campaign, ad squad or ad UUID for that reporting level.",
             "type": "string",
             "format": "uuid",
-            "description": "Campaign, ad squad or ad UUID for that reporting level."
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
           },
           "startTime": {
             "type": "string",
             "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
             "description": "Interval start, ISO timestamp with offset. Align DAY intervals to midnight in the account timezone."
           },
           "endTime": {
             "type": "string",
             "format": "date-time",
+            "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z|([+-](?:[01]\\d|2[0-3]):[0-5]\\d)))$",
             "description": "Interval end, exclusive, ISO timestamp with offset."
           },
           "granularity": {
+            "description": "Time bucketing of the returned stats.",
+            "default": "TOTAL",
             "type": "string",
             "enum": [
               "TOTAL",
               "DAY",
               "HOUR"
-            ],
-            "default": "TOTAL",
-            "description": "Time bucketing of the returned stats."
+            ]
           },
           "fields": {
+            "description": "Native stats fields, such as spend, impressions or swipes. See snapchat://reporting-fields.",
+            "default": [
+              "spend"
+            ],
+            "minItems": 1,
+            "maxItems": 100,
             "type": "array",
             "items": {
               "type": "string",
               "pattern": "^[a-z][a-z0-9_]*$"
-            },
-            "minItems": 1,
-            "maxItems": 100,
-            "default": [
-              "spend"
-            ],
-            "description": "Native stats fields, such as spend, impressions or swipes. See snapchat://reporting-fields."
+            }
           },
           "breakdown": {
+            "description": "Optional entity breakdown below the reporting level.",
             "type": "string",
             "enum": [
               "campaign",
               "adsquad",
               "ad"
-            ],
-            "description": "Optional entity breakdown below the reporting level."
+            ]
           },
           "reportDimension": {
+            "description": "Optional delivery audience pivot. Describes delivery, not configured targeting.",
             "type": "string",
             "enum": [
               "age",
@@ -1246,8 +1269,7 @@
               "dma",
               "device_os",
               "interest"
-            ],
-            "description": "Optional delivery audience pivot. Describes delivery, not configured targeting."
+            ]
           }
         },
         "required": [
@@ -1255,8 +1277,8 @@
           "startTime",
           "endTime"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1266,7 +1288,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1291,8 +1313,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1314,14 +1336,15 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1331,7 +1354,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1356,8 +1379,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1379,14 +1402,15 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           }
         },
         "required": [
           "adAccountId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1396,7 +1420,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1421,8 +1445,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1444,32 +1468,34 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "adsquadId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Ad squad UUID in the selected account."
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId",
           "adsquadId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1479,7 +1505,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1504,8 +1530,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1527,6 +1553,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "category": {
@@ -1545,29 +1572,29 @@
             "description": "Targeting catalog to read."
           },
           "countryCode": {
+            "description": "Two-letter country code, required for regions, metros and postal codes.",
             "type": "string",
-            "pattern": "^[a-zA-Z]{2}$",
-            "description": "Two-letter country code, required for regions, metros and postal codes."
+            "pattern": "^[a-zA-Z]{2}$"
           },
           "limit": {
+            "description": "Maximum entities per page, 1 to 1000.",
+            "default": 100,
             "type": "integer",
             "minimum": 1,
-            "maximum": 1000,
-            "default": 100,
-            "description": "Maximum entities per page, 1 to 1000."
+            "maximum": 1000
           },
           "cursor": {
+            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Opaque cursor from the previous response's next_cursor. Omit on the first request."
+            "maxLength": 2000
           }
         },
         "required": [
           "adAccountId",
           "category"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1577,7 +1604,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1602,8 +1629,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1622,8 +1649,8 @@
       "inputSchema": {
         "type": "object",
         "properties": {},
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1633,7 +1660,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1658,8 +1685,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": true,
@@ -1681,25 +1708,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1709,7 +1740,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1734,8 +1765,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -1757,22 +1788,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "entityId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the campaign to update."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -1780,8 +1816,8 @@
           "entityId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1791,7 +1827,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1816,8 +1852,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -1839,22 +1875,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "parentId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Campaign UUID that will own the ad squad."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -1862,8 +1903,8 @@
           "parentId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1873,7 +1914,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1898,8 +1939,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -1921,22 +1962,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "entityId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the adsquad to update."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -1944,8 +1990,8 @@
           "entityId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -1955,7 +2001,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -1980,8 +2026,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2003,22 +2049,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "parentId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Ad squad UUID that will own the ad."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -2026,8 +2077,8 @@
           "parentId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2037,7 +2088,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2062,8 +2113,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2085,22 +2136,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "entityId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the ad to update."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -2108,8 +2164,8 @@
           "entityId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2119,7 +2175,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2144,8 +2200,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2167,25 +2223,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2195,7 +2255,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2220,8 +2280,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2243,22 +2303,27 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "entityId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the creative to update."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -2266,8 +2331,8 @@
           "entityId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2277,7 +2342,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2302,8 +2367,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2325,25 +2390,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2353,7 +2422,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2378,8 +2447,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2401,25 +2470,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2429,7 +2502,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2454,8 +2527,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2477,25 +2550,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2505,7 +2582,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2530,8 +2607,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2553,25 +2630,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2581,7 +2662,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2606,8 +2687,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2629,25 +2710,29 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "spec": {
             "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
             "additionalProperties": {},
             "description": "Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "spec"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2657,7 +2742,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2682,8 +2767,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2705,11 +2790,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "campaignId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the campaign to rename."
           },
           "name": {
@@ -2719,9 +2806,9 @@
             "description": "New name, up to 375 characters. This is the only thing the call changes."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -2729,8 +2816,8 @@
           "campaignId",
           "name"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2740,7 +2827,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2765,8 +2852,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2788,11 +2875,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "adSquadId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the ad squad to rename."
           },
           "name": {
@@ -2802,9 +2891,9 @@
             "description": "New name, up to 375 characters. This is the only thing the call changes."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -2812,8 +2901,8 @@
           "adSquadId",
           "name"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2823,7 +2912,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2848,8 +2937,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2871,11 +2960,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "adId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the ad to rename."
           },
           "name": {
@@ -2885,9 +2976,9 @@
             "description": "New name, up to 375 characters. This is the only thing the call changes."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -2895,8 +2986,8 @@
           "adId",
           "name"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2906,7 +2997,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -2931,8 +3022,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -2954,6 +3045,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "name": {
@@ -2963,17 +3055,17 @@
             "description": "New name, up to 375 characters. This is the only thing the call changes."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "name"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -2983,7 +3075,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3008,8 +3100,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3031,6 +3123,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "kind": {
@@ -3045,6 +3138,7 @@
           "entityId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "UUID of the campaign, ad squad or ad."
           },
           "status": {
@@ -3056,9 +3150,9 @@
             "description": "Explicit requested delivery status. ACTIVE can spend budget."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3067,8 +3161,8 @@
           "entityId",
           "status"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3078,7 +3172,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3103,8 +3197,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3126,11 +3220,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "mediaId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Media UUID created with snapchat_create_media and awaiting upload."
           },
           "fileName": {
@@ -3155,9 +3251,9 @@
             "description": "Base64 file content, without a data URL prefix."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3167,8 +3263,8 @@
           "mimeType",
           "base64"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3178,7 +3274,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3203,8 +3299,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3226,6 +3322,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "segmentId": {
@@ -3233,6 +3330,7 @@
               {
                 "type": "string",
                 "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
                 "description": "Native Snapchat entity UUID."
               },
               {
@@ -3243,34 +3341,34 @@
             "description": "Native audience segment ID (UUID or numeric string)."
           },
           "name": {
+            "description": "Audience display name.",
             "type": "string",
             "minLength": 1,
-            "maxLength": 375,
-            "description": "Audience display name."
+            "maxLength": 375
           },
           "description": {
+            "description": "Audience description; empty string clears it.",
             "type": "string",
-            "maxLength": 2000,
-            "description": "Audience description; empty string clears it."
+            "maxLength": 2000
           },
           "retentionInDays": {
+            "description": "Retention days, subject to audience-type limits.",
             "type": "integer",
             "minimum": 1,
-            "maximum": 9999,
-            "description": "Retention days, subject to audience-type limits."
+            "maximum": 9999
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
           "adAccountId",
           "segmentId"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3280,7 +3378,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3305,8 +3403,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3328,6 +3426,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "segmentId": {
@@ -3335,6 +3434,7 @@
               {
                 "type": "string",
                 "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
                 "description": "Native Snapchat entity UUID."
               },
               {
@@ -3362,19 +3462,19 @@
             "description": "Identifier type hashed in every row."
           },
           "hashes": {
+            "minItems": 1,
+            "maxItems": 10000,
             "type": "array",
             "items": {
               "type": "string",
               "pattern": "^[a-f0-9]{64}$"
             },
-            "minItems": 1,
-            "maxItems": 10000,
             "description": "Normalized identifiers hashed with SHA-256, lowercase hexadecimal. Never raw personal data."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3384,8 +3484,8 @@
           "schema",
           "hashes"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3395,7 +3495,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3420,8 +3520,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3443,6 +3543,7 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "name": {
@@ -3456,6 +3557,7 @@
               {
                 "type": "string",
                 "format": "uuid",
+                "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
                 "description": "Native Snapchat entity UUID."
               },
               {
@@ -3466,36 +3568,36 @@
             "description": "Native audience segment ID (UUID or numeric string)."
           },
           "countries": {
+            "minItems": 1,
+            "maxItems": 20,
             "type": "array",
             "items": {
               "type": "string",
               "pattern": "^[A-Z]{2}$"
             },
-            "minItems": 1,
-            "maxItems": 20,
             "description": "Uppercase ISO 3166-1 country codes for the lookalike."
           },
           "type": {
+            "description": "Lookalike similarity versus reach preference.",
+            "default": "BALANCE",
             "type": "string",
             "enum": [
               "BALANCE",
               "SIMILARITY",
               "REACH"
-            ],
-            "default": "BALANCE",
-            "description": "Lookalike similarity versus reach preference."
+            ]
           },
           "retentionInDays": {
+            "description": "Lookalike retention, at most 180 days.",
+            "default": 180,
             "type": "integer",
             "minimum": 1,
-            "maximum": 180,
-            "default": 180,
-            "description": "Lookalike retention, at most 180 days."
+            "maximum": 180
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3504,8 +3606,8 @@
           "seedSegmentId",
           "countries"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3515,7 +3617,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3540,8 +3642,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3563,11 +3665,13 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "mediaId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "VIDEO media UUID created with snapchat_create_media."
           },
           "fileName": {
@@ -3589,9 +3693,9 @@
             "description": "Number of nonempty parts, each at most 8 MiB."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3601,8 +3705,8 @@
           "fileSize",
           "numberOfParts"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3612,7 +3716,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3637,8 +3741,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3660,16 +3764,19 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "mediaId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "VIDEO media UUID being uploaded."
           },
           "uploadId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "upload_id returned by snapchat_init_media_upload."
           },
           "addPath": {
@@ -3689,9 +3796,9 @@
             "description": "Base64-encoded bytes of this part, without a data URL prefix."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3702,8 +3809,8 @@
           "partNumber",
           "base64"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3713,7 +3820,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3738,8 +3845,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
@@ -3761,16 +3868,19 @@
           "adAccountId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."
           },
           "mediaId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "VIDEO media UUID being uploaded."
           },
           "uploadId": {
             "type": "string",
             "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$",
             "description": "upload_id returned by snapchat_init_media_upload."
           },
           "finalizePath": {
@@ -3779,9 +3889,9 @@
             "description": "Exact finalize_path returned by upload initialization."
           },
           "confirm": {
-            "type": "boolean",
+            "description": "False previews only. True applies the previewed change, after the user approved it.",
             "default": false,
-            "description": "False previews only. True applies the previewed change, after the user approved it."
+            "type": "boolean"
           }
         },
         "required": [
@@ -3790,8 +3900,8 @@
           "uploadId",
           "finalizePath"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "outputSchema": {
         "type": "object",
@@ -3801,7 +3911,7 @@
               {
                 "type": "object",
                 "properties": {},
-                "additionalProperties": true
+                "additionalProperties": {}
               },
               {
                 "type": "array",
@@ -3826,8 +3936,8 @@
         "required": [
           "result"
         ],
-        "additionalProperties": false,
-        "$schema": "http://json-schema.org/draft-07/schema#"
+        "$schema": "http://json-schema.org/draft-07/schema#",
+        "additionalProperties": false
       },
       "annotations": {
         "readOnlyHint": false,
