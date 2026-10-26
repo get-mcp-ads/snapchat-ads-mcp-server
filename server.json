@@ -3,7 +3,7 @@
   "name": "com.getmcpads/snapchat-ads",
   "title": "Snapchat Ads",
   "description": "Snapchat Ads MCP server: 21 read tools, 25 opt-in preview-first writes.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://www.getmcpads.com/tools/snapchat-ads",
   "repository": {
     "url": "https://github.com/get-mcp-ads/snapchat-ads-mcp-server",
@@ -14,7 +14,7 @@
       "registryType": "npm",
       "registryBaseUrl": "https://registry.npmjs.org",
       "identifier": "@getmcpads/snapchat-ads-mcp-server",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "transport": {
         "type": "stdio"
       },

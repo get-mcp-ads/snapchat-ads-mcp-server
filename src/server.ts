@@ -8,7 +8,7 @@ import { validateConfig, type SnapConfig } from "./config.js";
 import { registerSnapchat } from "./platforms/snapchat/index.js";
 import { installToolQuality } from "./tool-quality.js";
 
-export const PACKAGE_VERSION = "1.0.0";
+export const PACKAGE_VERSION = "1.0.1";
 
 export function createServer(input: SnapConfig): McpServer {
   const config = validateConfig(input);

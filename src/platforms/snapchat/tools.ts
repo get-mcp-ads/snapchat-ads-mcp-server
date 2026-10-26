@@ -24,12 +24,12 @@ const account = {
   adAccountId: z.string().uuid().describe("Snapchat ad account UUID listed in SNAPCHAT_ADS_ACCOUNT_IDS; never an organization ID."),
 };
 const page = {
-  limit: z.number().int().min(1).max(1000).default(100).describe("Maximum entities per page, 1 to 1000."),
+  limit: z.number().int().min(1).max(1000).prefault(100).describe("Maximum entities per page, 1 to 1000."),
   cursor: z.string().max(2000).optional().describe("Opaque cursor from the previous response's next_cursor. Omit on the first request."),
 };
-const confirm = z.boolean().default(false).describe("False previews only. True applies the previewed change, after the user approved it.");
+const confirm = z.boolean().prefault(false).describe("False previews only. True applies the previewed change, after the user approved it.");
 const native = z
-  .record(z.unknown())
+  .record(z.string(), z.unknown())
   .describe("Native Snap fields; budgets are integer micro currency units (1 currency unit = 1,000,000). Call snapchat_get_write_schema first.");
 const segmentId = z.union([id, z.string().regex(/^\d{1,30}$/)]).describe("Native audience segment ID (UUID or numeric string).");
 
@@ -94,8 +94,9 @@ function registrar(c: Collector, api: SnapClient): Register {
       try {
         const a = z.object(shape).strict().parse(raw ?? {});
         if (typeof a.adAccountId === "string") {
-          a.adAccountId = a.adAccountId.toLowerCase();
-          api.assertAllowed(a.adAccountId);
+          const accountId = a.adAccountId.toLowerCase();
+          a.adAccountId = accountId;
+          api.assertAllowed(accountId);
         }
         return out(await fn(a));
       } catch (e) {
@@ -175,7 +176,7 @@ export function registerSnapReads(c: Collector, api: SnapClient): void {
     {
       ...account,
       adIds: z.array(id).min(1).max(60).optional().describe("Specific ad UUIDs to resolve. Omit to resolve the first ads of the account."),
-      limit: z.number().int().min(1).max(60).default(24).describe("Ads to read when adIds is omitted, 1 to 60."),
+      limit: z.number().int().min(1).max(60).prefault(24).describe("Ads to read when adIds is omitted, 1 to 60."),
     },
     async (a) => {
       const inventory = a.adIds ? null : await api.request(`/adaccounts/${a.adAccountId}/ads?limit=${a.limit}`);
@@ -221,12 +222,12 @@ export function registerSnapReads(c: Collector, api: SnapClient): void {
     "Read native Snapchat stats with explicit time interval (end exclusive), granularity and optional entity breakdown. Spend and monetary conversion values are micro currency. Empty test-account results are not live performance evidence. partial:true means Snap returned another page of rows.",
     {
       ...account,
-      level: z.enum(["adaccounts", "campaigns", "adsquads", "ads"]).default("adaccounts").describe("Reporting level. Any level other than adaccounts needs entityId."),
+      level: z.enum(["adaccounts", "campaigns", "adsquads", "ads"]).prefault("adaccounts").describe("Reporting level. Any level other than adaccounts needs entityId."),
       entityId: id.optional().describe("Campaign, ad squad or ad UUID for that reporting level."),
       startTime: z.string().datetime({ offset: true }).describe("Interval start, ISO timestamp with offset. Align DAY intervals to midnight in the account timezone."),
       endTime: z.string().datetime({ offset: true }).describe("Interval end, exclusive, ISO timestamp with offset."),
-      granularity: z.enum(["TOTAL", "DAY", "HOUR"]).default("TOTAL").describe("Time bucketing of the returned stats."),
-      fields: z.array(z.string().regex(/^[a-z][a-z0-9_]*$/)).min(1).max(100).default(["spend"]).describe("Native stats fields, such as spend, impressions or swipes. See snapchat://reporting-fields."),
+      granularity: z.enum(["TOTAL", "DAY", "HOUR"]).prefault("TOTAL").describe("Time bucketing of the returned stats."),
+      fields: z.array(z.string().regex(/^[a-z][a-z0-9_]*$/)).min(1).max(100).prefault(["spend"]).describe("Native stats fields, such as spend, impressions or swipes. See snapchat://reporting-fields."),
       breakdown: z.enum(["campaign", "adsquad", "ad"]).optional().describe("Optional entity breakdown below the reporting level."),
       reportDimension: z.enum(["age", "gender", "country", "region", "dma", "device_os", "interest"]).optional().describe("Optional delivery audience pivot. Describes delivery, not configured targeting."),
     },
@@ -611,8 +612,8 @@ export function registerSnapWrites(c: Collector, api: SnapClient): void {
       name: z.string().min(1).max(375).describe("Audience display name."),
       seedSegmentId: segmentId,
       countries: z.array(z.string().regex(/^[A-Z]{2}$/)).min(1).max(20).describe("Uppercase ISO 3166-1 country codes for the lookalike."),
-      type: z.enum(["BALANCE", "SIMILARITY", "REACH"]).default("BALANCE").describe("Lookalike similarity versus reach preference."),
-      retentionInDays: z.number().int().min(1).max(180).default(180).describe("Lookalike retention, at most 180 days."),
+      type: z.enum(["BALANCE", "SIMILARITY", "REACH"]).prefault("BALANCE").describe("Lookalike similarity versus reach preference."),
+      retentionInDays: z.number().int().min(1).max(180).prefault(180).describe("Lookalike retention, at most 180 days."),
       confirm,
     },
     async (a) => {
